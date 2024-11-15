@@ -1,590 +1,420 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-.container-root {
-  padding: 0 24px;
-  float: none;
-  margin: 0 auto;
-  max-width: 1280px;
-  box-sizing: border-box;
-}
 .storytelling-scroller.is-background-locked .storytelling-scroller__skip {
-  visibility: visible;
-  opacity: 0.6;
-  transition: opacity 0.6s cubic-bezier(0.38, 0.41, 0.27, 1), visibility 0.6s;
+    visibility: visible;
+    opacity: .6;
+    transition: opacity .6s cubic-bezier(.38,.41,.27,1),visibility .6s
 }
 
 .storytelling-scroller__backgrounds {
-  z-index: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: position;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  transform: translateZ(0);
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: position;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    transform: translateZ(0)
 }
 
-.storytelling-scroller__backgrounds.is-bottom
-  .storytelling-scroller__background {
-  top: auto;
-  bottom: 0;
+.storytelling-scroller__backgrounds.is-bottom .storytelling-scroller__background {
+    top: auto;
+    bottom: 0
 }
 
-.storytelling-scroller__background,
-.storytelling-scroller__background figure {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  transform: translateZ(0);
+.storytelling-scroller__background,.storytelling-scroller__background figure {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transform: translateZ(0)
 }
 
 .storytelling-scroller__background {
-  opacity: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transition: opacity 1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: opacity 1s cubic-bezier(.55,.06,.68,.19)
 }
 
 .storytelling-scroller__background.storytelling__background--show {
-  opacity: 1;
-  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    opacity: 1;
+    transition-timing-function: cubic-bezier(.22,.61,.36,1)
 }
 
 .storytelling-scroller__background img {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
 }
 
-.storytelling-scroller__background img.lazyload,
-.storytelling-scroller__background img.lazyloading {
-  -webkit-filter: blur(20px);
-  filter: blur(20px);
+.storytelling-scroller__background img.lazyload,.storytelling-scroller__background img.lazyloading {
+    -webkit-filter: blur(20px);
+    filter: blur(20px)
 }
 
 .storytelling-scroller__background img.lazyloaded {
-  transition: all 10s ease-in-out, -webkit-filter 0.4s, filter 0.4s,
-    -webkit-filter 0.4s, filter 0.4s;
+    transition: all 10s ease-in-out,-webkit-filter .4s,filter .4s,-webkit-filter .4s,filter .4s
 }
 
 .storytelling-scroller__background .storytelling-scroller__background-overlay {
-  z-index: 1;
-  background: var(--pat-theme-cta-back, #000);
-  opacity: 0.4;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+    z-index: 1;
+    background: var(--pat-theme-cta-back,#000);
+    opacity: .4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0
 }
 
-.storytelling-scroller__background figure,
-.storytelling-scroller__background .storytelling-scroller__background-overlay {
-  background-color: var(--pat-theme-back, #fff);
+.storytelling-scroller__background figure,.storytelling-scroller__background .storytelling-scroller__background-overlay {
+    background-color: var(--pat-theme-back,#fff)
 }
 
 .storytelling-scroller__border {
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
 }
 
-.storytelling-scroller__border-top,
-.storytelling-scroller__border-right,
-.storytelling-scroller__border-bottom,
-.storytelling-scroller__border-left {
-  will-change: transform;
-  transition: transform 10ms;
-  position: absolute;
+.storytelling-scroller__border-top,.storytelling-scroller__border-right,.storytelling-scroller__border-bottom,.storytelling-scroller__border-left {
+    will-change: transform;
+    transition: transform 10ms;
+    position: absolute
 }
 
-.storytelling-scroller__border-top,
-section .themed.is-light .storytelling-scroller__border-top,
-.storytelling-scroller__border-right,
-section .themed.is-light .storytelling-scroller__border-right,
-.storytelling-scroller__border-bottom,
-section .themed.is-light .storytelling-scroller__border-bottom,
-.storytelling-scroller__border-left,
-section .themed.is-light .storytelling-scroller__border-left {
-  background-color: var(--pat-theme-back, #fff);
+.storytelling-scroller__border-top,section .themed.is-light .storytelling-scroller__border-top,.storytelling-scroller__border-right,section .themed.is-light .storytelling-scroller__border-right,.storytelling-scroller__border-bottom,section .themed.is-light .storytelling-scroller__border-bottom,.storytelling-scroller__border-left,section .themed.is-light .storytelling-scroller__border-left {
+    background-color: var(--pat-theme-back,#fff)
 }
 
-.is-dark .storytelling-scroller__border-top,
-section .themed.is-dark .storytelling-scroller__border-top,
-.is-dark .storytelling-scroller__border-right,
-section .themed.is-dark .storytelling-scroller__border-right,
-.is-dark .storytelling-scroller__border-bottom,
-section .themed.is-dark .storytelling-scroller__border-bottom,
-.is-dark .storytelling-scroller__border-left,
-section .themed.is-dark .storytelling-scroller__border-left {
-  background-color: var(--pat-theme-back, #000);
+.is-dark .storytelling-scroller__border-top,section .themed.is-dark .storytelling-scroller__border-top,.is-dark .storytelling-scroller__border-right,section .themed.is-dark .storytelling-scroller__border-right,.is-dark .storytelling-scroller__border-bottom,section .themed.is-dark .storytelling-scroller__border-bottom,.is-dark .storytelling-scroller__border-left,section .themed.is-dark .storytelling-scroller__border-left {
+    background-color: var(--pat-theme-back,#000)
 }
 
 .storytelling-scroller__border-top {
-  transform-origin: 50% 0;
-  width: 100%;
-  height: 2rem;
-  top: -0.1rem;
-  left: 0;
+    transform-origin: 50% 0;
+    width: 100%;
+    height: 2rem;
+    top: -.1rem;
+    left: 0
 }
 
 @media only screen and (min-width: 768px) {
-  .storytelling-scroller__border-top {
-    height: 4rem;
-  }
+    .storytelling-scroller__border-top {
+        height:4rem
+    }
 }
 
 @media only screen and (min-width: 992px) {
-  .storytelling-scroller__border-top {
-    height: 8rem;
-  }
+    .storytelling-scroller__border-top {
+        height:8rem
+    }
 }
 
 .storytelling-scroller__border-right {
-  transform-origin: 100%;
-  width: 2rem;
-  height: 100%;
-  top: 0;
-  left: auto;
-  right: -0.1rem;
+    transform-origin: 100%;
+    width: 2rem;
+    height: 100%;
+    top: 0;
+    left: auto;
+    right: -.1rem
 }
 
 @media only screen and (min-width: 768px) {
-  .storytelling-scroller__border-right {
-    width: 4rem;
-  }
+    .storytelling-scroller__border-right {
+        width:4rem
+    }
 }
 
 @media only screen and (min-width: 992px) {
-  .storytelling-scroller__border-right {
-    width: 8rem;
-  }
+    .storytelling-scroller__border-right {
+        width:8rem
+    }
 }
 
 .storytelling-scroller__border-bottom {
-  transform-origin: 50% 100%;
-  width: 100%;
-  height: 2rem;
-  top: auto;
-  bottom: -0.1rem;
-  left: 0;
+    transform-origin: 50% 100%;
+    width: 100%;
+    height: 2rem;
+    top: auto;
+    bottom: -.1rem;
+    left: 0
 }
 
 @media only screen and (min-width: 768px) {
-  .storytelling-scroller__border-bottom {
-    height: 4rem;
-  }
+    .storytelling-scroller__border-bottom {
+        height:4rem
+    }
 }
 
 @media only screen and (min-width: 992px) {
-  .storytelling-scroller__border-bottom {
-    height: 7rem;
-  }
+    .storytelling-scroller__border-bottom {
+        height:7rem
+    }
 }
 
 .storytelling-scroller__border-left {
-  transform-origin: 0%;
-  width: 2rem;
-  height: 100%;
-  top: 0;
-  left: -0.1rem;
+    transform-origin: 0%;
+    width: 2rem;
+    height: 100%;
+    top: 0;
+    left: -.1rem
 }
 
 @media only screen and (min-width: 768px) {
-  .storytelling-scroller__border-left {
-    width: 4rem;
-  }
+    .storytelling-scroller__border-left {
+        width:4rem
+    }
 }
 
 @media only screen and (min-width: 992px) {
-  .storytelling-scroller__border-left {
-    width: 7rem;
-  }
+    .storytelling-scroller__border-left {
+        width:7rem
+    }
 }
 
 .storytelling-scroller__foregrounds {
-  z-index: 4;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  width: 100%;
-  margin-top: -100vh;
-  position: relative;
-  overflow: hidden;
+    z-index: 4;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%;
+    margin-top: -100vh;
+    position: relative;
+    overflow: hidden
 }
 
 .storytelling-scroller__foreground {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
 }
 
-.storytelling-scroller__foreground > div {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  width: 100%;
+.storytelling-scroller__foreground>div {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%
 }
 
-.storytelling-scroller__foreground
-  .storytelling-scroller__foreground-content-wrapper {
-  opacity: 0;
-  transition: opacity 1s;
+.storytelling-scroller__foreground .storytelling-scroller__foreground-content-wrapper {
+    opacity: 0;
+    transition: opacity 1s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper {
-  opacity: 1;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper {
+    opacity: 1
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-main__content
-  > *,
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-caption
-  > * {
-  transform: none;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-main__content>*,.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-caption>* {
+    transform: none
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-main__content
-  > :first-child,
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-caption
-  > :first-child {
-  transition: opacity 0.5s cubic-bezier(0.545, 0.015, 0.335, 1) 0.16s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.12s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-main__content>:first-child,.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-caption>:first-child {
+    transition: opacity .5s cubic-bezier(.545,.015,.335,1) .16s,transform .8s cubic-bezier(.175,.29,.405,1) .12s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-main__content
-  > :nth-child(2),
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-caption
-  > :nth-child(2) {
-  transition: opacity 0.5s cubic-bezier(0.545, 0.015, 0.335, 1) 0.32s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.24s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-main__content>:nth-child(2),.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-caption>:nth-child(2) {
+    transition: opacity .5s cubic-bezier(.545,.015,.335,1) .32s,transform .8s cubic-bezier(.175,.29,.405,1) .24s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-main__content
-  > :nth-child(3),
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-caption
-  > :nth-child(3) {
-  transition: opacity 0.5s cubic-bezier(0.545, 0.015, 0.335, 1) 0.48s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.36s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-main__content>:nth-child(3),.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-caption>:nth-child(3) {
+    transition: opacity .5s cubic-bezier(.545,.015,.335,1) .48s,transform .8s cubic-bezier(.175,.29,.405,1) .36s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-main__content
-  > :nth-child(4),
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-caption
-  > :nth-child(4) {
-  transition: opacity 0.5s cubic-bezier(0.545, 0.015, 0.335, 1) 0.64s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.48s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-main__content>:nth-child(4),.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-caption>:nth-child(4) {
+    transition: opacity .5s cubic-bezier(.545,.015,.335,1) .64s,transform .8s cubic-bezier(.175,.29,.405,1) .48s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-main__content
-  > :nth-child(5),
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-caption
-  > :nth-child(5) {
-  transition: opacity 0.5s cubic-bezier(0.545, 0.015, 0.335, 1) 0.8s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.6s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-main__content>:nth-child(5),.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-caption>:nth-child(5) {
+    transition: opacity .5s cubic-bezier(.545,.015,.335,1) .8s,transform .8s cubic-bezier(.175,.29,.405,1) .6s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-main__content
-  > :nth-child(6),
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-caption
-  > :nth-child(6) {
-  transition: opacity 0.5s cubic-bezier(0.545, 0.015, 0.335, 1) 0.96s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.72s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-main__content>:nth-child(6),.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-caption>:nth-child(6) {
+    transition: opacity .5s cubic-bezier(.545,.015,.335,1) .96s,transform .8s cubic-bezier(.175,.29,.405,1) .72s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-main__content
-  > :first-child,
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .hero-caption
-  > :first-child {
-  transition: opacity 0.5s cubic-bezier(0.38, 0.41, 0.27, 1),
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1);
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-main__content>:first-child,.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .hero-caption>:first-child {
+    transition: opacity .5s cubic-bezier(.38,.41,.27,1),transform .8s cubic-bezier(.175,.29,.405,1)
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .slider-cards__header-inner
-  > * {
-  opacity: 1;
-  transform: none;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .slider-cards__header-inner>* {
+    opacity: 1;
+    transform: none
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .slider-cards__header-inner
-  > :first-child {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.16s,
-    transform 0.6s cubic-bezier(0.175, 0.29, 0.405, 1) 0.12s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .slider-cards__header-inner>:first-child {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .16s,transform .6s cubic-bezier(.175,.29,.405,1) .12s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .slider-cards__header-inner
-  > :nth-child(2) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.32s,
-    transform 0.6s cubic-bezier(0.175, 0.29, 0.405, 1) 0.24s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .slider-cards__header-inner>:nth-child(2) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .32s,transform .6s cubic-bezier(.175,.29,.405,1) .24s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .slider-cards__header-inner
-  > :nth-child(3) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.48s,
-    transform 0.6s cubic-bezier(0.175, 0.29, 0.405, 1) 0.36s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .slider-cards__header-inner>:nth-child(3) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .48s,transform .6s cubic-bezier(.175,.29,.405,1) .36s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .slider-cards__header-inner
-  > :nth-child(4) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.64s,
-    transform 0.6s cubic-bezier(0.175, 0.29, 0.405, 1) 0.48s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .slider-cards__header-inner>:nth-child(4) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .64s,transform .6s cubic-bezier(.175,.29,.405,1) .48s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .slider-cards__header-inner
-  > :nth-child(5) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.8s,
-    transform 0.6s cubic-bezier(0.175, 0.29, 0.405, 1) 0.6s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .slider-cards__header-inner>:nth-child(5) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .8s,transform .6s cubic-bezier(.175,.29,.405,1) .6s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .slider-cards__header-inner
-  > :nth-child(6) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.96s,
-    transform 0.6s cubic-bezier(0.175, 0.29, 0.405, 1) 0.72s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .slider-cards__header-inner>:nth-child(6) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .96s,transform .6s cubic-bezier(.175,.29,.405,1) .72s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > * {
-  opacity: 1;
-  transform: none;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>* {
+    opacity: 1;
+    transform: none
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > :first-child {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.16s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.12s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>:first-child {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .16s,transform .8s cubic-bezier(.175,.29,.405,1) .12s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > :nth-child(2) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.24s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.16s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>:nth-child(2) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .24s,transform .8s cubic-bezier(.175,.29,.405,1) .16s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > :nth-child(3) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.32s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.2s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>:nth-child(3) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .32s,transform .8s cubic-bezier(.175,.29,.405,1) .2s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > :nth-child(4) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.4s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.24s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>:nth-child(4) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .4s,transform .8s cubic-bezier(.175,.29,.405,1) .24s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > :nth-child(5) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.48s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.28s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>:nth-child(5) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .48s,transform .8s cubic-bezier(.175,.29,.405,1) .28s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > :nth-child(6) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.56s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.32s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>:nth-child(6) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .56s,transform .8s cubic-bezier(.175,.29,.405,1) .32s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > :nth-child(7) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.64s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.36s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>:nth-child(7) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .64s,transform .8s cubic-bezier(.175,.29,.405,1) .36s
 }
 
-.storytelling-scroller__foreground.is-on-screen
-  .storytelling-scroller__foreground-content-wrapper
-  .swiper-wrapper
-  > :nth-child(8) {
-  transition: opacity 0.4s cubic-bezier(0.545, 0.015, 0.335, 1) 0.72s,
-    transform 0.8s cubic-bezier(0.175, 0.29, 0.405, 1) 0.4s;
+.storytelling-scroller__foreground.is-on-screen .storytelling-scroller__foreground-content-wrapper .swiper-wrapper>:nth-child(8) {
+    transition: opacity .4s cubic-bezier(.545,.015,.335,1) .72s,transform .8s cubic-bezier(.175,.29,.405,1) .4s
 }
 
-.storytelling-scroller__foreground .hero-main,
-.storytelling-scroller__foreground .hero-main.themed {
-  background: 0 0;
-  background-color: transparent !important;
+.storytelling-scroller__foreground .hero-main,.storytelling-scroller__foreground .hero-main.themed {
+    background: 0 0;
+    background-color: transparent!important
 }
 
 .storytelling-scroller__foreground .hero-main__center-left .hero-main__svg {
-  object-position: left center;
+    object-position: left center
 }
 
 .storytelling-scroller__foreground .hero-main__bottom-left .hero-main__svg {
-  object-position: left bottom;
+    object-position: left bottom
 }
 
 .storytelling-scroller__foreground-content-wrapper {
-  flex-flow: wrap;
-  justify-content: center;
-  width: 100%;
-  padding: 0;
-  display: flex;
-  position: relative;
+    flex-flow: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    position: relative
 }
 
-.storytelling-scroller__foreground-content-wrapper .hero-main__content > *,
-.storytelling-scroller__foreground-content-wrapper .hero-caption > * {
-  transition: transform 0.3s linear 0.3s,
-    opacity 0.3s cubic-bezier(0.38, 0.41, 0.27, 1);
-  transform: translateY(10rem);
+.storytelling-scroller__foreground-content-wrapper .hero-main__content>*,.storytelling-scroller__foreground-content-wrapper .hero-caption>* {
+    transition: transform .3s linear .3s,opacity .3s cubic-bezier(.38,.41,.27,1);
+    transform: translateY(10rem)
 }
 
 .storytelling-scroller__foreground-content-wrapper .slider-cards__container {
-  width: 100vw;
+    width: 100vw
 }
 
 .storytelling-scroller__foreground-content-wrapper .slider-cards {
-  background-color: transparent;
+    background-color: transparent
 }
 
-.storytelling-scroller__foreground-content-wrapper
-  .slider-cards__header-inner
-  > * {
-  opacity: 0;
-  transition: transform 0s linear 0.3s,
-    opacity 0.3s cubic-bezier(0.38, 0.41, 0.27, 1);
-  transform: translateY(6rem);
+.storytelling-scroller__foreground-content-wrapper .slider-cards__header-inner>* {
+    opacity: 0;
+    transition: transform 0s linear .3s,opacity .3s cubic-bezier(.38,.41,.27,1);
+    transform: translateY(6rem)
 }
 
-.storytelling-scroller__foreground-content-wrapper .swiper-wrapper > * {
-  opacity: 0;
-  transition: transform 0s linear 0.3s,
-    opacity 0.3s cubic-bezier(0.38, 0.41, 0.27, 1);
-  transform: translateY(10rem);
+.storytelling-scroller__foreground-content-wrapper .swiper-wrapper>* {
+    opacity: 0;
+    transition: transform 0s linear .3s,opacity .3s cubic-bezier(.38,.41,.27,1);
+    transform: translateY(10rem)
 }
 
-.storytelling-scroller__foreground-content-wrapper .slider,
-.storytelling-scroller__foreground-content-wrapper .slider-cards__container,
-.storytelling-scroller__foreground-content-wrapper .container-wrapper {
-  overflow: visible;
+.storytelling-scroller__foreground-content-wrapper .slider,.storytelling-scroller__foreground-content-wrapper .slider-cards__container,.storytelling-scroller__foreground-content-wrapper .container-wrapper {
+    overflow: visible
 }
 
 .storytelling-scroller__foreground-content-wrapper .hero-caption__cta {
-  flex: none;
+    flex: none
 }
 
 .storytelling-scroller__progress {
-  z-index: 3;
-  width: 100%;
-  height: 0.8rem;
-  position: absolute;
-  top: 0;
-  left: 0;
+    z-index: 3;
+    width: 100%;
+    height: .8rem;
+    position: absolute;
+    top: 0;
+    left: 0
 }
 
 .storytelling-scroller__progress-track {
-  transform-origin: 0%;
-  width: 100%;
-  height: 0.8rem;
-  position: absolute;
-  top: 0;
-  left: 0;
+    transform-origin: 0%;
+    width: 100%;
+    height: .8rem;
+    position: absolute;
+    top: 0;
+    left: 0
 }
 
-.storytelling-scroller__progress-track,
-section .themed.is-light .storytelling-scroller__progress-track {
-  background: rgba(255, 255, 255, 0.6);
+.storytelling-scroller__progress-track,section .themed.is-light .storytelling-scroller__progress-track {
+    background: rgba(255,255,255,.6)
 }
 
-.is-dark .storytelling-scroller__progress-track,
-section .themed.is-dark .storytelling-scroller__progress-track {
-  background: rgba(0, 0, 0, 0.4);
+.is-dark .storytelling-scroller__progress-track,section .themed.is-dark .storytelling-scroller__progress-track {
+    background: rgba(0,0,0,.4)
 }
 
 .storytelling-scroller__skip {
-  z-index: 10;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s cubic-bezier(0.38, 0.41, 0.27, 1), visibility 0.3s;
-  display: none;
-  position: fixed;
-  top: 2rem;
-  left: auto;
-  right: 8rem;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s cubic-bezier(.38,.41,.27,1),visibility .3s;
+    display: none;
+    position: fixed;
+    top: 2rem;
+    left: auto;
+    right: 8rem
 }
 
 .storytelling-scroller__skip:hover {
-  transition: opacity 0.6s cubic-bezier(0.38, 0.41, 0.27, 1), visibility 0.6s;
-  opacity: 1 !important;
+    transition: opacity .6s cubic-bezier(.38,.41,.27,1),visibility .6s;
+    opacity: 1!important
 }
 
-.storytelling-scroller__background--no-bg-overlay
-  .storytelling-scroller__background-overlay {
-  display: none;
+.storytelling-scroller__background--no-bg-overlay .storytelling-scroller__background-overlay {
+    display: none
 }
+
+/*# sourceMappingURL=storytelling-scroller.css.map*/
