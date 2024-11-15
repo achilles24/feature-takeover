@@ -1,0 +1,424 @@
+@import "./../../base-bootstrap";
+
+// NOTE: Some critical styles are defined in _storytelling-scroller-critical.scss
+
+.storytelling-scroller {
+  $this: &;
+
+  ////////////////////////////////////////////////////////////////
+  // STATES
+
+  &.is-background-locked {
+    #{$this}__skip {
+      visibility: visible;
+
+      opacity: 0.6;
+
+      transition: opacity 0.6s $ease-out-soft, visibility 0.6s;
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////
+  // ELEMENTS
+
+  // backgrounds
+
+  &__backgrounds {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    overflow: hidden;
+
+    will-change: position;
+
+    &.is-bottom {
+      #{$this}__background {
+        top: auto;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__background,
+  &__background figure {
+    @include is-absolute-fs;
+
+    height: 100vh;
+
+    transform: translateZ(0); // need hardware rendering or this will glitch out
+    backface-visibility: hidden;
+
+    overflow: hidden;
+  }
+
+  &__background {
+    opacity: 0;
+    backface-visibility: hidden;
+
+    transition: opacity 1s $ease-in-cubic;
+
+    &.storytelling__background--show {
+      opacity: 1;
+
+      transition-timing-function: $ease-out-cubic;
+    }
+
+    img {
+      @include is-absolute-fs;
+
+      backface-visibility: hidden;
+
+      &.lazyload,
+      &.lazyloading {
+        filter: blur(20px);
+      }
+
+      &.lazyloaded {
+        transition: 10s ease-in-out, filter 0.4s, filter 0.4s;
+      }
+    }
+
+    #{$this}__background-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+
+      background: var(--pat-theme-cta-back, $black);
+
+      opacity: $overlay-opacity;
+    }
+
+    figure,
+    #{$this}__background-overlay {
+      background-color: var(--pat-theme-back, #fff);
+    }
+  }
+
+  // intro border
+
+  &__border {
+    @include is-absolute-fs;
+
+    z-index: 1;
+  }
+
+  &__border-top,
+  &__border-right,
+  &__border-bottom,
+  &__border-left {
+    position: absolute;
+
+    will-change: transform;
+
+    transition: transform 0.01s;
+
+    &,
+    section .themed.is-light & {
+      background-color: var(--pat-theme-back, $white);
+    }
+
+    .is-dark &,
+    section .themed.is-dark & {
+      background-color: var(--pat-theme-back, $black);
+    }
+  }
+
+  &__border-top {
+    top: -0.1rem;
+    left: 0;
+
+    width: 100%;
+    height: 2rem;
+
+    transform-origin: 50% 0%;
+
+    @include mq("medium") {
+      height: 4rem;
+    }
+
+    @include mq("large") {
+      height: 8rem;
+    }
+  }
+
+  &__border-right {
+    top: 0;
+    left: auto;
+    right: -0.1rem;
+
+    width: 2rem;
+    height: 100%;
+
+    transform-origin: 100% 50%;
+
+    @include mq("medium") {
+      width: 4rem;
+    }
+
+    @include mq("large") {
+      width: 8rem;
+    }
+  }
+
+  &__border-bottom {
+    top: auto;
+    left: 0;
+    bottom: -0.1rem;
+
+    width: 100%;
+    height: 2rem;
+
+    transform-origin: 50% 100%;
+
+    @include mq("medium") {
+      height: 4rem;
+    }
+
+    @include mq("large") {
+      height: 7rem;
+    }
+  }
+
+  &__border-left {
+    top: 0;
+    left: -0.1rem;
+
+    width: 2rem;
+    height: 100%;
+
+    transform-origin: 0% 50%;
+
+    @include mq("medium") {
+      width: 4rem;
+    }
+
+    @include mq("large") {
+      width: 7rem;
+    }
+  }
+
+  // foregrounds
+
+  &__foregrounds {
+    position: relative;
+    z-index: 4;
+
+    width: 100%;
+    margin-top: -100vh;
+
+    backface-visibility: hidden;
+
+    overflow: hidden;
+  }
+
+  &__foreground {
+    // NOTE: Some critical styles for &__foreground are defined in _storytelling-scroller-critical.scss
+    backface-visibility: hidden;
+
+    > div {
+      width: 100%;
+
+      backface-visibility: hidden;
+    }
+
+    #{$this}__foreground-content-wrapper {
+      opacity: 0;
+
+      transition: opacity 1s;
+    }
+
+    // STATES
+
+    &.is-on-screen {
+      #{$this}__foreground-content-wrapper {
+        opacity: 1;
+
+        .hero-main__content > *,
+        .hero-caption > * {
+          transform: none;
+
+          @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+              transition: opacity 0.5s $ease-in-out-soft 0.16s * $i,
+                transform 0.8s $ease-out-dynamic 0.12s * $i;
+            }
+          }
+
+          &:first-child {
+            transition: opacity 0.5s $ease-out-soft 0s,
+              transform 0.8s $ease-out-dynamic 0s;
+          }
+        }
+
+        .slider-cards__header-inner > * {
+          opacity: 1;
+          transform: none;
+
+          @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+              transition: opacity 0.4s $ease-in-out-soft 0.16s * $i,
+                transform 0.6s $ease-out-dynamic 0.12s * $i;
+            }
+          }
+        }
+
+        .swiper-wrapper > * {
+          opacity: 1;
+          transform: none;
+
+          @for $i from 1 through 8 {
+            &:nth-child(#{$i}) {
+              transition: opacity 0.4s $ease-in-out-soft 0.08s * $i + 0.08s,
+                transform 0.8s $ease-out-dynamic 0.04s * $i + 0.08s;
+            }
+          }
+        }
+      }
+    }
+
+    // ELEMENTS
+
+    .hero-main {
+      &,
+      &.themed {
+        background: none;
+        background-color: transparent !important;
+      }
+
+      &__center-left {
+        .hero-main__svg {
+          object-position: left center;
+        }
+      }
+
+      &__bottom-left {
+        .hero-main__svg {
+          object-position: left bottom;
+        }
+      }
+    }
+  }
+
+  &__foreground-content-wrapper {
+    position: relative;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    width: 100%;
+    padding: 0;
+
+    .hero-main__content > *,
+    .hero-caption > * {
+      transform: translateY(10rem);
+
+      transition: transform 0.3s linear 0.3s, opacity 0.3s $ease-out-soft 0s;
+    }
+
+    .slider-cards__container {
+      width: 100vw;
+    }
+
+    .slider-cards {
+      background-color: transparent;
+    }
+
+    .slider-cards__header-inner > * {
+      opacity: 0;
+      transform: translateY(6rem);
+
+      transition: transform 0s linear 0.3s, opacity 0.3s $ease-out-soft 0s;
+    }
+
+    .swiper-wrapper > * {
+      opacity: 0;
+      transform: translateY(10rem);
+
+      transition: transform 0s linear 0.3s, opacity 0.3s $ease-out-soft 0s;
+    }
+
+    .slider,
+    .slider-cards__container,
+    .container-wrapper {
+      overflow: visible;
+    }
+
+    .hero-caption__cta {
+      flex: none;
+    }
+  }
+
+  // progress indicator
+
+  &__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    width: 100%;
+    height: 0.8rem;
+  }
+
+  &__progress-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 0.8rem;
+
+    transform-origin: 0% 50%;
+
+    &,
+    section .themed.is-light & {
+      background: rgba($white, 0.6);
+    }
+
+    .is-dark &,
+    section .themed.is-dark & {
+      background: rgba($black, 0.4);
+    }
+  }
+
+  // skip button
+
+  &__skip {
+    position: fixed;
+    top: 2rem;
+    left: auto;
+    right: 8rem;
+    z-index: 10;
+
+    display: none;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    transition: opacity 0.3s $ease-out-soft, visibility 0.3s;
+
+    &:hover {
+      opacity: 1 !important;
+
+      transition: opacity 0.6s $ease-out-soft, visibility 0.6s;
+    }
+  }
+
+  // BEM overrides
+
+  &__background--no-bg-overlay {
+    #{$this}__background-overlay {
+      display: none;
+    }
+  }
+}

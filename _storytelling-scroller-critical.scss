@@ -1,0 +1,44 @@
+// Needed for lazyload minimal layout shift
+$ease-out-dynamic: cubic-bezier(0.175, 0.29, 0.405, 1);
+.storytelling-scroller {
+  $this: &;
+
+  position: relative;
+
+  width: 100%;
+
+  &:after {
+    content: unset; // Gets rid of box-shadow imported onto article ele
+  }
+
+  &__foreground {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    transition: opacity 0.2s $ease-out-dynamic;
+
+    &:last-child {
+      align-items: flex-end;
+
+      min-height: 100vh;
+    }
+
+    &:first-child {
+      min-height: 120vh;
+
+      //   @include mq("medium") {
+      //   min-height: 150vh;
+      //   }
+
+      &:last-child {
+        align-items: flex-end;
+      }
+    }
+  }
+}
